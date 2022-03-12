@@ -1,17 +1,14 @@
 function tocaSom(idAudio) {
     const elemento = document.querySelector(idAudio)
-
-    //condição para tratar o código, caso for inserido um elemento nulo, ou seja, que não tenha a classe da tecla, é retornado no console um aviso 
-    if (elemento === null) {
+    //caso o elemento seja diferente de nulo ou tenha a tag <audio> é dado o play()
+    if (elemento /*!= null (o js reconhece se o valor é nulo)*/ && elemento.localName === 'audio') {
+        elemento.play()
+    } else {
+        //condição para tratar o código, caso for inserido um elemento nulo, ou seja, que não tenha a classe da tecla, é retornado no console um aviso 
         console.log('elemento não encontrado')
     }
-    //caso o elemento seja diferente de nulo ou tenha a tag <audio> é dado o play()
-    if (elemento != null) {
-        if (elemento.localName === 'audio') {
-            elemento.play()
-        }
-    }
 }
+
 
 const listaDeTeclas = document.querySelectorAll('.tecla'); //cria uma lista de elementos referente a classe tecla
 
